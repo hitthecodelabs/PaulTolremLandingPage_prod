@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+      <h2 class="my-4">Payment</h2>
+      <p>Here you can add a payment form or integrate a payment gateway, such as Stripe or PayPal, to process transactions.</p>
+      <button class="btn btn-secondary" onclick="location.href='{% url 'home' %}'">Back to home</button>
+
+      {% if user.is_authenticated %}
+        <!-- Show the button to connect MetaMask only if the user is authenticated -->
+        <h3 class="mt-4">Conectar MetaMask</h3>
+        <button class="btn btn-primary" onclick="connectMetaMask()">Connect MetaMask</button>
+        <div></div>
+        <button class="btn btn-secondary" onclick="disconnectMetaMask()">Disconnect MetaMask</button>
+      {% else %}
+        <p class="mt-4"><a class="btn btn-primary" href="{% url 'register' %}">Sign up</a> or <a class="btn btn-secondary" href="{% url 'login' %}">log in</a> to access our services.</p>
+    {% endif %}
+  </div>
+{% endblock %}

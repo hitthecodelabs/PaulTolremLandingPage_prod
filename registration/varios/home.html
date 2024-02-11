@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Welcome to Paul Tolrem!</h1>
+  <p>Paul Tolrem is a fintech platform that offers various financial services.</p>
+
+  {% if user.is_authenticated %}
+    <p>Hello, {{ user.username }}! You're logged in.</p>
+  {% else %}
+    <p><a href="{% url 'register' %}">Sign up</a> or <a href="{% url 'login' %}">log in</a> to access our services.</p>
+  {% endif %}
+{% endblock %}

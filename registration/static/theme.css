@@ -1,0 +1,13 @@
+body.dark-theme {
+    background-color: #212529;
+    color: white;
+}
+
+body.dark-theme .navbar-light {
+    background-color: #343a40 !important;
+}
+
+body.dark-theme .navbar-light .navbar-brand, 
+body.dark-theme .navbar-light .nav-link {
+    color: #f8f9fa !important;
+}

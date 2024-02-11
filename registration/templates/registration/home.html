@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h1 class="mb-5 text-center font-weight-bold text-uppercase">Welcome to Paul Tolrem</h1>
+        <p class="text-justify">Paul Tolrem is a fintech platform that offers various financial tools.</p>
+
+        {% if user.is_authenticated %}
+          <p class="mb-4">Hello, {{ user.username }}! You're logged in.</p>
+          <h3 class="font-weight-bold">Connect MetaMask</h3>
+          <button class="btn btn-primary mr-2" onclick="connectMetaMask()">Connect MetaMask</button>
+          <button class="btn btn-secondary" onclick="disconnectMetaMask()">Disconnect MetaMask</button>
+
+        {% else %}
+          <div class="d-flex justify-content-center mt-4">
+            <a class="btn btn-primary mx-2" href="{% url 'register' %}">Sign up</a>
+            <a class="btn btn-secondary mx-2" href="{% url 'login' %}">Log in</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h1 class="mb-5 text-center font-weight-bold text-uppercase">Our Team</h1>
+        <p class="text-justify">We are a small but dedicated team committed to delivering the best service; we are looking forward to growing in the future.</p>
+
+        <!-- CEO Profile -->
+        <div class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="{% static 'charts/images/ceo.jpg' %}" class="card-img" alt="CEO">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Jean Paul</h5>
+                <p class="card-text">CEO and Founder</p>
+                <p class="card-text">With a background in Data Science and Machine Learning, I founded this company with the vision of helping traders to trade better by leveraging invaluable information.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End CEO Profile -->
+
+        <div class="mb-5 text-center">
+          <button class="btn btn-primary btn-lg" onclick="location.href='{% url 'home' %}'">Back to home</button>
+        </div>
+
+        {% if not user.is_authenticated %}
+          <div class="d-flex justify-content-center">
+            <a class="btn btn-primary mx-2" href="{% url 'register' %}">Sign up</a>
+            <a class="btn btn-secondary mx-2" href="{% url 'login' %}">Log in</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
